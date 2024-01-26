@@ -54,7 +54,7 @@ export default function MenuItems({ menu }) {
               <Pressable
                 key={c}
                 style={btnStyle}
-                onPress={() => handleFilter(c)}
+                onPressIn={() => handleFilter(c)}
               >
                 <Text style={textColor}>{c}</Text>
               </Pressable>

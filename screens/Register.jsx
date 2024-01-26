@@ -13,7 +13,6 @@ export default function Register() {
   const [next, setNext] = useState(false);
   const { setUser } = getUser();
 
-
   function registerUser() {
     const newUser = {
       firstName,
@@ -111,7 +110,7 @@ export default function Register() {
                     : styles.disabledBtnText
                 }
               >
-                Next
+                {!next ? "Next" : "Finish"}
               </Text>
             </View>
           </Pressable>
