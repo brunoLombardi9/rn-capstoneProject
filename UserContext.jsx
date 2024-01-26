@@ -37,6 +37,7 @@ const UserContext = ({ children }) => {
     try {
       setLoading(true);
       setUserData(null);
+      await AsyncStorage.removeItem("user")
     } catch (error) {
       console.log(error);
     } finally {

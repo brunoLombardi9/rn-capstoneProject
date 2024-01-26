@@ -13,18 +13,15 @@ export default function Register() {
   const [next, setNext] = useState(false);
   const { setUser } = getUser();
 
-  async function registerUser() {
+
+  function registerUser() {
     const newUser = {
       firstName,
       lastName,
       email,
       phone,
     };
-    try {
-      setUser(newUser);
-    } catch (error) {
-      console.log(error);
-    }
+    setUser(newUser);
   }
 
   return (
@@ -96,7 +93,10 @@ export default function Register() {
             />
           </View>
 
-          <Pressable onPress={registerUser} disabled={!email || !phone}>
+          <Pressable
+            onPress={registerUser}
+            disabled={!email || !validatePhone(phone)}
+          >
             <View
               style={
                 validateEmail(email) && validatePhone(phone)
@@ -152,11 +152,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: 70,
     backgroundColor: colors.green,
     borderRadius: 16,
+    borderWidth: 2,
   },
   disabledBtn: {
     paddingVertical: 15,
     paddingHorizontal: 70,
     backgroundColor: colors.light,
+    borderWidth: 2,
     borderRadius: 16,
   },
   enabledBtnText: {

@@ -1,8 +1,8 @@
 const validatePhone = (phone) => {
-  if (typeof phone !== "number" || phone.length < 10) {
+  if (typeof parseInt(phone) !== "number" || phone.length < 8) {
     return false;
   } else {
-    true;
+    return true;
   }
 };
 export default validatePhone;

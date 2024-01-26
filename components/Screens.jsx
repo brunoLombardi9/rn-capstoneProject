@@ -12,7 +12,7 @@ const Stack = createNativeStackNavigator();
 
 export default function Screens() {
   const { userData, loading } = getUser();
-  console.log({ userData, loading });
+  const hideHeader = { headerShown: false }
 
   return (
     <Stack.Navigator
@@ -20,14 +20,14 @@ export default function Screens() {
         header: ({ navigation }) => <Header navigation={navigation} />,
       }}
     >
-      {loading && <Stack.Screen name="Loading" component={Loading} />}
+      {loading && <Stack.Screen name="Loading" component={Loading} options={hideHeader} />}
 
       {!loading && (
         <>
           {!userData ? (
             <>
-              <Stack.Screen name="Onboarding" component={Onboarding} />
-              <Stack.Screen name="Register" component={Register} />
+              <Stack.Screen name="Onboarding" component={Onboarding} options={hideHeader} />
+              <Stack.Screen name="Register" component={Register} options={hideHeader} />
             </>
           ) : (
             <>

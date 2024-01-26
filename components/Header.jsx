@@ -9,20 +9,15 @@ export default function Header({ navigation }) {
   const route = useRoute().name;
   const { userData } = getUser();
 
-  function handleLogoIcon() {
-    if (userData) {
-      navigation.navigate("Home");
-    } else {
-      navigation.navigate("Onboarding");
-    }
-  }
-
   return (
     <View style={styles.header}>
       {route === "Profile" && (
         <GoBackBtn handleGoBack={() => navigation.pop()} />
       )}
-      <Pressable onPress={handleLogoIcon} style={styles.logo}>
+      <Pressable
+        onPress={() => navigation.navigate("Home")}
+        style={styles.logo}
+      >
         <Image
           source={require("../assets/images/Logo.png")}
           resizeMode="contain"

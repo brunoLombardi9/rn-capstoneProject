@@ -4,18 +4,16 @@ import { getUser } from "../UserContext";
 import { colors } from "../utils/theme";
 
 export default function Profile() {
-  const {logOutUser} = getUser()
+  const { logOutUser } = getUser();
   return (
     <View>
       <Text>Profile</Text>
 
-
       <Pressable onPress={logOutUser}>
-          <View style={styles.logoutBtn}>
-            <Text style={styles.buttonText}>Next</Text>
-          </View>
-        </Pressable>
-
+        <View style={styles.logoutBtn}>
+          <Text style={styles.buttonText}>Next</Text>
+        </View>
+      </Pressable>
     </View>
   );
 }
@@ -26,5 +24,5 @@ const styles = StyleSheet.create({
     paddingHorizontal: 70,
     backgroundColor: colors.green,
     borderRadius: 16,
-  }
-})
+  },
+});
