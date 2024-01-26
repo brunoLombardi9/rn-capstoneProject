@@ -15,12 +15,14 @@ export default function MenuItems({ menu }) {
   const [selectedCategories, setSelectedCategories] = useState([]);
   const data = selectedCategories.length === 0 ? menu : [];
 
-  selectedCategories.forEach((category) => {
-    const products = menu.filter(
-      (product) => product.category == category.toLowerCase()
-    );
-    data.push(...products);
-  });
+  if (selectedCategories.length > 0) {
+    selectedCategories.forEach((category) => {
+      const products = menu.filter(
+        (product) => product.category == category.toLowerCase()
+      );
+      data.push(...products);
+    });
+  }
 
   function handleFilter(option) {
     const isSelected = selectedCategories.includes(option);

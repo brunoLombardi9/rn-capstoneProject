@@ -27,7 +27,7 @@ export default function Hero() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1 / 2.3,
+    flex: 1 / 2.5,
     backgroundColor: colors.green,
     paddingHorizontal: 10,
     paddingTop: 15
